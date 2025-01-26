@@ -25,6 +25,7 @@ jobs:
           pip install safety==2.3.0
           pip install flask==2.0.3
           pip install requests==2.26.0
+          pip install 'packaging<22.0'
 
       - name: Run Safety
         run: safety check --full-report --exit-code 1

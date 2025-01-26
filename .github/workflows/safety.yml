@@ -15,16 +15,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.9
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.x'
 
-      - name: Upgrade pip and install dependencies
+      - name: Install dependencies
         run: |
-          pip install --upgrade pip
           pip install safety==2.3.0
-          pip install -r requirements.txt
+          pip install flask==2.0.3
+          pip install requests==2.26.0
+          pip install 'packaging<22.0'
 
       - name: Run Safety
-        run: safety check --file=requirements.txt --full-report --exit-code 1
+        run: safety check --full-report --exit-code 1

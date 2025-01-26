@@ -22,8 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install safety
+          pip install safety==2.3.0
           pip install -r requirements.txt
 
       - name: Run Safety
-        run: safety check
+        run: safety check --file=requirements.txt --full-report --exit-code 1
